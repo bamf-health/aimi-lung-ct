@@ -12,5 +12,9 @@ Resources to create a container that runs nnUNet model inference on AIMI collect
   * `docker run --gpus all -v {input_dir_ct}:/app/data/input_data/ct:ro -v {output_dir}:/app/data/output_data bamfhealth/bamf_nnunet_ct_lung:latest`
 * Once the job is finished, the output inference mask(s) would be available in the `{output_dir}` folder
 * Expected output from after successful container run is:
-  * {output_dir}/seg_nodules_ensemble.nii.gz
-  * {output_dir}/seg_lesions_ensemble.nii.gz
+  * If nifty to dcm conversion is a success:
+    * {output_dir}/seg_nodules_ensemble.dcm
+    * {output_dir}/seg_lesions_ensemble.dcm
+  * Else:
+    * {output_dir}/seg_nodules_ensemble.nii.gz
+    * {output_dir}/seg_lesions_ensemble.nii.gz
